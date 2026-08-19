@@ -16,6 +16,7 @@ import { Route as ChatRouteImport } from './routes/chat'
 import { Route as GoalsRouteImport } from './routes/goals'
 import { Route as MaysarRouteImport } from './routes/maysar'
 import { Route as MoneyRouteImport } from './routes/money'
+import { Route as OpportunitiesRouteImport } from './routes/opportunities'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as StreakRouteImport } from './routes/streak'
 
@@ -54,6 +55,11 @@ const MoneyRoute = MoneyRouteImport.update({
   path: '/money',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OpportunitiesRoute = OpportunitiesRouteImport.update({
+  id: '/opportunities',
+  path: '/opportunities',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/goals': typeof GoalsRoute
   '/maysar': typeof MaysarRoute
   '/money': typeof MoneyRoute
+  '/opportunities': typeof OpportunitiesRoute
   '/services': typeof ServicesRoute
   '/streak': typeof StreakRoute
 }
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/goals': typeof GoalsRoute
   '/maysar': typeof MaysarRoute
   '/money': typeof MoneyRoute
+  '/opportunities': typeof OpportunitiesRoute
   '/services': typeof ServicesRoute
   '/streak': typeof StreakRoute
 }
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/goals': typeof GoalsRoute
   '/maysar': typeof MaysarRoute
   '/money': typeof MoneyRoute
+  '/opportunities': typeof OpportunitiesRoute
   '/services': typeof ServicesRoute
   '/streak': typeof StreakRoute
 }
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/goals'
     | '/maysar'
     | '/money'
+    | '/opportunities'
     | '/services'
     | '/streak'
   fileRoutesByTo: FileRoutesByTo
@@ -120,6 +130,7 @@ export interface FileRouteTypes {
     | '/goals'
     | '/maysar'
     | '/money'
+    | '/opportunities'
     | '/services'
     | '/streak'
   id:
@@ -131,6 +142,7 @@ export interface FileRouteTypes {
     | '/goals'
     | '/maysar'
     | '/money'
+    | '/opportunities'
     | '/services'
     | '/streak'
   fileRoutesById: FileRoutesById
@@ -143,6 +155,7 @@ export interface RootRouteChildren {
   GoalsRoute: typeof GoalsRoute
   MaysarRoute: typeof MaysarRoute
   MoneyRoute: typeof MoneyRoute
+  OpportunitiesRoute: typeof OpportunitiesRoute
   ServicesRoute: typeof ServicesRoute
   StreakRoute: typeof StreakRoute
 }
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MoneyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/opportunities': {
+      id: '/opportunities'
+      path: '/opportunities'
+      fullPath: '/opportunities'
+      preLoaderRoute: typeof OpportunitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -223,6 +243,7 @@ const rootRouteChildren: RootRouteChildren = {
   GoalsRoute: GoalsRoute,
   MaysarRoute: MaysarRoute,
   MoneyRoute: MoneyRoute,
+  OpportunitiesRoute: OpportunitiesRoute,
   ServicesRoute: ServicesRoute,
   StreakRoute: StreakRoute,
 }
