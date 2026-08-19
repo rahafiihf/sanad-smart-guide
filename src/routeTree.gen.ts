@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountRouteImport } from './routes/account'
 import { Route as CardsRouteImport } from './routes/cards'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as GoalsRouteImport } from './routes/goals'
@@ -20,6 +21,11 @@ import { Route as StreakRouteImport } from './routes/streak'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CardsRoute = CardsRouteImport.update({
@@ -55,6 +61,7 @@ const StreakRoute = StreakRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
   '/cards': typeof CardsRoute
   '/chat': typeof ChatRoute
   '/goals': typeof GoalsRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
   '/cards': typeof CardsRoute
   '/chat': typeof ChatRoute
   '/goals': typeof GoalsRoute
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
   '/cards': typeof CardsRoute
   '/chat': typeof ChatRoute
   '/goals': typeof GoalsRoute
@@ -84,12 +93,28 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/cards' | '/chat' | '/goals' | '/maysar' | '/services' | '/streak'
+    | '/'
+    | '/account'
+    | '/cards'
+    | '/chat'
+    | '/goals'
+    | '/maysar'
+    | '/services'
+    | '/streak'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cards' | '/chat' | '/goals' | '/maysar' | '/services' | '/streak'
+  to:
+    | '/'
+    | '/account'
+    | '/cards'
+    | '/chat'
+    | '/goals'
+    | '/maysar'
+    | '/services'
+    | '/streak'
   id:
     | '__root__'
     | '/'
+    | '/account'
     | '/cards'
     | '/chat'
     | '/goals'
@@ -100,6 +125,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRoute
   CardsRoute: typeof CardsRoute
   ChatRoute: typeof ChatRoute
   GoalsRoute: typeof GoalsRoute
@@ -115,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cards': {
@@ -164,6 +197,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRoute: AccountRoute,
   CardsRoute: CardsRoute,
   ChatRoute: ChatRoute,
   GoalsRoute: GoalsRoute,
