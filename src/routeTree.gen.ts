@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CardsRouteImport } from './routes/cards'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as GoalsRouteImport } from './routes/goals'
 import { Route as StreakRouteImport } from './routes/streak'
@@ -17,6 +18,11 @@ import { Route as StreakRouteImport } from './routes/streak'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CardsRoute = CardsRouteImport.update({
+  id: '/cards',
+  path: '/cards',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChatRoute = ChatRouteImport.update({
@@ -37,12 +43,14 @@ const StreakRoute = StreakRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cards': typeof CardsRoute
   '/chat': typeof ChatRoute
   '/goals': typeof GoalsRoute
   '/streak': typeof StreakRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cards': typeof CardsRoute
   '/chat': typeof ChatRoute
   '/goals': typeof GoalsRoute
   '/streak': typeof StreakRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cards': typeof CardsRoute
   '/chat': typeof ChatRoute
   '/goals': typeof GoalsRoute
   '/streak': typeof StreakRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/chat' | '/goals' | '/streak'
+  fullPaths: '/' | '/cards' | '/chat' | '/goals' | '/streak'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/chat' | '/goals' | '/streak'
-  id: '__root__' | '/' | '/chat' | '/goals' | '/streak'
+  to: '/' | '/cards' | '/chat' | '/goals' | '/streak'
+  id: '__root__' | '/' | '/cards' | '/chat' | '/goals' | '/streak'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CardsRoute: typeof CardsRoute
   ChatRoute: typeof ChatRoute
   GoalsRoute: typeof GoalsRoute
   StreakRoute: typeof StreakRoute
@@ -76,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cards': {
+      id: '/cards'
+      path: '/cards'
+      fullPath: '/cards'
+      preLoaderRoute: typeof CardsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/chat': {
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CardsRoute: CardsRoute,
   ChatRoute: ChatRoute,
   GoalsRoute: GoalsRoute,
   StreakRoute: StreakRoute,
