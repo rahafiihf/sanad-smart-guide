@@ -81,7 +81,7 @@ export function ar(n: number) {
   return n
     .toLocaleString("en-US")
     .replace(/,/g, "٬")
-    .replace(/\d/g, (d) => arabicDigits[Number(d)]);
+    .replace(/\d/g, (d) => arabicDigits[Number(d)]!);
 }
 
 export function riyal(n: number) {
