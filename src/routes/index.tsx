@@ -44,7 +44,7 @@ function Index() {
     );
   }
 
-  const main = goals[0];
+  const main = goals[0]!;
   const progress = Math.round((main.saved / main.target) * 100);
 
   return (

@@ -113,5 +113,5 @@ export function etaLabel(goal: Goal, extraMonths = 0, monthly = goal.monthly) {
   const m = monthsToFinish(goal, monthly) + extraMonths;
   const base = new Date(2026, 7, 1);
   base.setMonth(base.getMonth() + m);
-  return `${months[base.getMonth()]} ${ar(base.getFullYear())}`;
+  return `${months[base.getMonth()]!} ${ar(base.getFullYear())}`;
 }

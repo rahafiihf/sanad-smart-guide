@@ -28,7 +28,7 @@ const suggestions = [
 
 function ChatPage() {
   const { goals } = useSanad();
-  const goal = goals[0];
+  const goal = goals[0]!;
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);

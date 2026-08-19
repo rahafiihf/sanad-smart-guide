@@ -24,7 +24,7 @@ const milestones = [
 
 function StreakPage() {
   const { streakWeeks } = useSanad();
-  const next = milestones.find((m) => m.weeks > streakWeeks) ?? milestones[milestones.length - 1];
+  const next = milestones.find((m) => m.weeks > streakWeeks) ?? milestones[milestones.length - 1]!;
   const progress = Math.min(100, Math.round((streakWeeks / next.weeks) * 100));
 
   return (

@@ -22,7 +22,7 @@ const items = [
 
 function OpportunitiesPage() {
   const { goals } = useSanad();
-  const main = goals[0];
+  const main = goals[0]!;
   const pct = Math.round((main.saved / main.target) * 100);
 
   return (
