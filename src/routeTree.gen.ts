@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountRouteImport } from './routes/account'
+import { Route as CardsRouteImport } from './routes/cards'
+import { Route as ChatRouteImport } from './routes/chat'
+import { Route as GoalsRouteImport } from './routes/goals'
+import { Route as MaysarRouteImport } from './routes/maysar'
+import { Route as MoneyRouteImport } from './routes/money'
+import { Route as OpportunitiesRouteImport } from './routes/opportunities'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as StreakRouteImport } from './routes/streak'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CardsRoute = CardsRouteImport.update({
+  id: '/cards',
+  path: '/cards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatRoute = ChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoalsRoute = GoalsRouteImport.update({
+  id: '/goals',
+  path: '/goals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaysarRoute = MaysarRouteImport.update({
+  id: '/maysar',
+  path: '/maysar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MoneyRoute = MoneyRouteImport.update({
+  id: '/money',
+  path: '/money',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OpportunitiesRoute = OpportunitiesRouteImport.update({
+  id: '/opportunities',
+  path: '/opportunities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StreakRoute = StreakRouteImport.update({
+  id: '/streak',
+  path: '/streak',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/cards': typeof CardsRoute
+  '/chat': typeof ChatRoute
+  '/goals': typeof GoalsRoute
+  '/maysar': typeof MaysarRoute
+  '/money': typeof MoneyRoute
+  '/opportunities': typeof OpportunitiesRoute
+  '/services': typeof ServicesRoute
+  '/streak': typeof StreakRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/cards': typeof CardsRoute
+  '/chat': typeof ChatRoute
+  '/goals': typeof GoalsRoute
+  '/maysar': typeof MaysarRoute
+  '/money': typeof MoneyRoute
+  '/opportunities': typeof OpportunitiesRoute
+  '/services': typeof ServicesRoute
+  '/streak': typeof StreakRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/cards': typeof CardsRoute
+  '/chat': typeof ChatRoute
+  '/goals': typeof GoalsRoute
+  '/maysar': typeof MaysarRoute
+  '/money': typeof MoneyRoute
+  '/opportunities': typeof OpportunitiesRoute
+  '/services': typeof ServicesRoute
+  '/streak': typeof StreakRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/account'
+    | '/cards'
+    | '/chat'
+    | '/goals'
+    | '/maysar'
+    | '/money'
+    | '/opportunities'
+    | '/services'
+    | '/streak'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/account'
+    | '/cards'
+    | '/chat'
+    | '/goals'
+    | '/maysar'
+    | '/money'
+    | '/opportunities'
+    | '/services'
+    | '/streak'
+  id:
+    | '__root__'
+    | '/'
+    | '/account'
+    | '/cards'
+    | '/chat'
+    | '/goals'
+    | '/maysar'
+    | '/money'
+    | '/opportunities'
+    | '/services'
+    | '/streak'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRoute
+  CardsRoute: typeof CardsRoute
+  ChatRoute: typeof ChatRoute
+  GoalsRoute: typeof GoalsRoute
+  MaysarRoute: typeof MaysarRoute
+  MoneyRoute: typeof MoneyRoute
+  OpportunitiesRoute: typeof OpportunitiesRoute
+  ServicesRoute: typeof ServicesRoute
+  StreakRoute: typeof StreakRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cards': {
+      id: '/cards'
+      path: '/cards'
+      fullPath: '/cards'
+      preLoaderRoute: typeof CardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/goals': {
+      id: '/goals'
+      path: '/goals'
+      fullPath: '/goals'
+      preLoaderRoute: typeof GoalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/maysar': {
+      id: '/maysar'
+      path: '/maysar'
+      fullPath: '/maysar'
+      preLoaderRoute: typeof MaysarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/money': {
+      id: '/money'
+      path: '/money'
+      fullPath: '/money'
+      preLoaderRoute: typeof MoneyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/opportunities': {
+      id: '/opportunities'
+      path: '/opportunities'
+      fullPath: '/opportunities'
+      preLoaderRoute: typeof OpportunitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/streak': {
+      id: '/streak'
+      path: '/streak'
+      fullPath: '/streak'
+      preLoaderRoute: typeof StreakRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRoute: AccountRoute,
+  CardsRoute: CardsRoute,
+  ChatRoute: ChatRoute,
+  GoalsRoute: GoalsRoute,
+  MaysarRoute: MaysarRoute,
+  MoneyRoute: MoneyRoute,
+  OpportunitiesRoute: OpportunitiesRoute,
+  ServicesRoute: ServicesRoute,
+  StreakRoute: StreakRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
