@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ChatRouteImport } from './routes/chat'
+import { Route as GoalsRouteImport } from './routes/goals'
 import { Route as StreakRouteImport } from './routes/streak'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const ChatRoute = ChatRouteImport.update({
   path: '/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GoalsRoute = GoalsRouteImport.update({
+  id: '/goals',
+  path: '/goals',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StreakRoute = StreakRouteImport.update({
   id: '/streak',
   path: '/streak',
@@ -32,30 +38,34 @@ const StreakRoute = StreakRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/chat': typeof ChatRoute
+  '/goals': typeof GoalsRoute
   '/streak': typeof StreakRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/chat': typeof ChatRoute
+  '/goals': typeof GoalsRoute
   '/streak': typeof StreakRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/chat': typeof ChatRoute
+  '/goals': typeof GoalsRoute
   '/streak': typeof StreakRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/chat' | '/streak'
+  fullPaths: '/' | '/chat' | '/goals' | '/streak'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/chat' | '/streak'
-  id: '__root__' | '/' | '/chat' | '/streak'
+  to: '/' | '/chat' | '/goals' | '/streak'
+  id: '__root__' | '/' | '/chat' | '/goals' | '/streak'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ChatRoute: typeof ChatRoute
+  GoalsRoute: typeof GoalsRoute
   StreakRoute: typeof StreakRoute
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/goals': {
+      id: '/goals'
+      path: '/goals'
+      fullPath: '/goals'
+      preLoaderRoute: typeof GoalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/streak': {
       id: '/streak'
       path: '/streak'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ChatRoute: ChatRoute,
+  GoalsRoute: GoalsRoute,
   StreakRoute: StreakRoute,
 }
 export const routeTree = rootRouteImport
