@@ -30,9 +30,10 @@ export function Splash({ onDone }: { onDone: () => void }) {
       <img
         src={word.url}
         alt="سند SANAD"
-        className="animate-soft-fade mt-6 h-16 w-auto object-contain"
+        className="animate-soft-fade mt-4 h-24 w-auto object-contain"
         style={{ animationDelay: "1.1s" }}
       />
+
       <img
         src={tag.url}
         alt="بنك سند.. سندك المالي"
