@@ -14,7 +14,6 @@ import { Route as AccountRouteImport } from './routes/account'
 import { Route as CardsRouteImport } from './routes/cards'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as GoalsRouteImport } from './routes/goals'
-import { Route as MaysarRouteImport } from './routes/maysar'
 import { Route as MoneyRouteImport } from './routes/money'
 import { Route as OpportunitiesRouteImport } from './routes/opportunities'
 import { Route as ServicesRouteImport } from './routes/services'
@@ -45,11 +44,6 @@ const GoalsRoute = GoalsRouteImport.update({
   path: '/goals',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MaysarRoute = MaysarRouteImport.update({
-  id: '/maysar',
-  path: '/maysar',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const MoneyRoute = MoneyRouteImport.update({
   id: '/money',
   path: '/money',
@@ -77,7 +71,6 @@ export interface FileRoutesByFullPath {
   '/cards': typeof CardsRoute
   '/chat': typeof ChatRoute
   '/goals': typeof GoalsRoute
-  '/maysar': typeof MaysarRoute
   '/money': typeof MoneyRoute
   '/opportunities': typeof OpportunitiesRoute
   '/services': typeof ServicesRoute
@@ -89,7 +82,6 @@ export interface FileRoutesByTo {
   '/cards': typeof CardsRoute
   '/chat': typeof ChatRoute
   '/goals': typeof GoalsRoute
-  '/maysar': typeof MaysarRoute
   '/money': typeof MoneyRoute
   '/opportunities': typeof OpportunitiesRoute
   '/services': typeof ServicesRoute
@@ -102,7 +94,6 @@ export interface FileRoutesById {
   '/cards': typeof CardsRoute
   '/chat': typeof ChatRoute
   '/goals': typeof GoalsRoute
-  '/maysar': typeof MaysarRoute
   '/money': typeof MoneyRoute
   '/opportunities': typeof OpportunitiesRoute
   '/services': typeof ServicesRoute
@@ -116,7 +107,6 @@ export interface FileRouteTypes {
     | '/cards'
     | '/chat'
     | '/goals'
-    | '/maysar'
     | '/money'
     | '/opportunities'
     | '/services'
@@ -128,7 +118,6 @@ export interface FileRouteTypes {
     | '/cards'
     | '/chat'
     | '/goals'
-    | '/maysar'
     | '/money'
     | '/opportunities'
     | '/services'
@@ -140,7 +129,6 @@ export interface FileRouteTypes {
     | '/cards'
     | '/chat'
     | '/goals'
-    | '/maysar'
     | '/money'
     | '/opportunities'
     | '/services'
@@ -153,7 +141,6 @@ export interface RootRouteChildren {
   CardsRoute: typeof CardsRoute
   ChatRoute: typeof ChatRoute
   GoalsRoute: typeof GoalsRoute
-  MaysarRoute: typeof MaysarRoute
   MoneyRoute: typeof MoneyRoute
   OpportunitiesRoute: typeof OpportunitiesRoute
   ServicesRoute: typeof ServicesRoute
@@ -197,13 +184,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GoalsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/maysar': {
-      id: '/maysar'
-      path: '/maysar'
-      fullPath: '/maysar'
-      preLoaderRoute: typeof MaysarRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/money': {
       id: '/money'
       path: '/money'
@@ -241,7 +221,6 @@ const rootRouteChildren: RootRouteChildren = {
   CardsRoute: CardsRoute,
   ChatRoute: ChatRoute,
   GoalsRoute: GoalsRoute,
-  MaysarRoute: MaysarRoute,
   MoneyRoute: MoneyRoute,
   OpportunitiesRoute: OpportunitiesRoute,
   ServicesRoute: ServicesRoute,

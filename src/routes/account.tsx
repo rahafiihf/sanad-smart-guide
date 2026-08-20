@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Accessibility, ChevronLeft, Shield, Bell, FileText, HelpCircle, Gauge, Flame } from "lucide-react";
+import { ChevronLeft, Shield, Bell, FileText, HelpCircle, Gauge, Flame } from "lucide-react";
 import { AppShell, PageHeader } from "@/components/AppShell";
 
 export const Route = createFileRoute("/account")({
   head: () => ({
     meta: [
       { title: "حسابي | بنك سَنَد" },
-      { name: "description", content: "إعدادات حسابك في بنك سَنَد، سَنَد مُيسّر، والخدمات بدون زيارة الفرع." },
+      { name: "description", content: "إعدادات حسابك في بنك سَنَد والخدمات بدون زيارة الفرع." },
       { property: "og:title", content: "حسابي | بنك سَنَد" },
       { property: "og:description", content: "تحكم في حسابك وتفضيلاتك في بنك سَنَد." },
     ],
@@ -39,7 +39,6 @@ function AccountPage() {
 
       <h2 className="mt-7 mb-3 text-lg font-bold">تجارب سَنَد</h2>
       <div className="flex flex-col gap-3">
-        <NavCard to="/maysar" icon={Accessibility} title="سَنَد مُيسّر" desc="سَنَد يتكيّف معك، مو العكس." />
         <NavCard to="/services" icon={FileText} title="خدمات بدون زيارة الفرع" desc="أنجز خدماتك من مكانك." />
         <NavCard to="/streak" icon={Flame} title="Sanad Streak" desc="استمرارك هو إنجازك." />
       </div>
@@ -73,7 +72,7 @@ function NavCard({
   desc,
 }: {
   to: string;
-  icon: typeof Accessibility;
+  icon: typeof FileText;
   title: string;
   desc: string;
 }) {

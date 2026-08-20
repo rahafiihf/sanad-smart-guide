@@ -1,5 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { Snowflake, Eye, Wallet, Gauge, RefreshCw, Settings, Accessibility, ChevronLeft } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { Snowflake, Eye, Wallet, Gauge, RefreshCw, Settings } from "lucide-react";
 import { AppShell, PageHeader } from "@/components/AppShell";
 import { riyal, useSanad } from "@/lib/sanad-store";
 
@@ -7,7 +7,7 @@ export const Route = createFileRoute("/cards")({
   head: () => ({
     meta: [
       { title: "البطاقات | بنك سَنَد" },
-      { name: "description", content: "بطاقات سَنَد الافتراضية وبطاقة سَنَد مُيسّر مع التحكم بالإنفاق." },
+      { name: "description", content: "بطاقات سَنَد الافتراضية مع التحكم بحدود الإنفاق." },
       { property: "og:title", content: "البطاقات | بنك سَنَد" },
       { property: "og:description", content: "إدارة بطاقاتك وحدود إنفاقك في بنك سَنَد." },
     ],
@@ -74,17 +74,6 @@ function CardsPage() {
         </div>
       </div>
 
-      <h2 className="mt-7 mb-3 text-lg font-bold">بطاقة سَنَد مُيسّر</h2>
-      <Link to="/maysar" className="surface flex items-center justify-between p-5">
-        <div className="flex items-center gap-3">
-          <Accessibility className="size-5 text-primary" />
-          <div>
-            <p className="font-semibold">تجربة مصرفية أسهل وأكثر وصولًا</p>
-            <p className="text-sm text-muted-foreground">سَنَد يتكيّف معك، مو العكس.</p>
-          </div>
-        </div>
-        <ChevronLeft className="size-5 text-muted-foreground" />
-      </Link>
     </AppShell>
   );
 }
