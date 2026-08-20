@@ -27,7 +27,7 @@ const quick = [
 
 function Index() {
   const [splash, setSplash] = useState(true);
-  const { balance, goals, streakWeeks } = useSanad();
+  const { balance, goals, streakMonths } = useSanad();
 
   useEffect(() => {
     if (sessionStorage.getItem("sanad-splash") === "seen") setSplash(false);
@@ -101,7 +101,7 @@ function Index() {
         <Link to="/streak" className="surface flex items-center justify-between gap-3 p-5">
           <div>
             <p className="flex items-center gap-2 text-base font-bold">
-              <Flame className="size-5 text-gold" /> {ar(streakWeeks)} أسبوع متتالي
+              <Flame className="size-5 text-gold" /> {streakMonths <= 10 ? `${ar(streakMonths)} أشهر متتالية` : `${ar(streakMonths)} شهر متتالي`}
             </p>
             <p className="mt-1 text-sm text-muted-foreground">استمرارك هو إنجازك.</p>
           </div>
