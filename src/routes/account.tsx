@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Accessibility, ChevronLeft, Shield, Bell, FileText, HelpCircle, Gauge, Flame } from "lucide-react";
+import { ChevronLeft, Shield, Bell, FileText, HelpCircle, Gauge, Flame } from "lucide-react";
 import { AppShell, PageHeader } from "@/components/AppShell";
 
 export const Route = createFileRoute("/account")({
   head: () => ({
     meta: [
       { title: "حسابي | بنك سَنَد" },
-      { name: "description", content: "إعدادات حسابك في بنك سَنَد، سَنَد مُيسّر، والخدمات بدون زيارة الفرع." },
+      { name: "description", content: "إعدادات حسابك في بنك سَنَد والخدمات بدون زيارة الفرع." },
       { property: "og:title", content: "حسابي | بنك سَنَد" },
       { property: "og:description", content: "تحكم في حسابك وتفضيلاتك في بنك سَنَد." },
     ],
@@ -72,7 +72,7 @@ function NavCard({
   desc,
 }: {
   to: string;
-  icon: typeof Accessibility;
+  icon: typeof FileText;
   title: string;
   desc: string;
 }) {
