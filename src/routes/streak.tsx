@@ -22,10 +22,6 @@ function cashbackFor(weeks: number) {
   return w < 2 ? 0 : w / 100;
 }
 
-function pct(v: number) {
-  return `${ar(Number(v.toFixed(2).split(".")[1] ? 0 : 0))}`;
-}
-
 function fmtPct(v: number) {
   return `${v.toFixed(2).replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[Number(d)]!).replace(".", "٫")}٪`;
 }

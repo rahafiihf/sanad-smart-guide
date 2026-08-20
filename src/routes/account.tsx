@@ -39,7 +39,6 @@ function AccountPage() {
 
       <h2 className="mt-7 mb-3 text-lg font-bold">تجارب سَنَد</h2>
       <div className="flex flex-col gap-3">
-        <NavCard to="/maysar" icon={Accessibility} title="سَنَد مُيسّر" desc="سَنَد يتكيّف معك، مو العكس." />
         <NavCard to="/services" icon={FileText} title="خدمات بدون زيارة الفرع" desc="أنجز خدماتك من مكانك." />
         <NavCard to="/streak" icon={Flame} title="Sanad Streak" desc="استمرارك هو إنجازك." />
       </div>

@@ -74,17 +74,6 @@ function CardsPage() {
         </div>
       </div>
 
-      <h2 className="mt-7 mb-3 text-lg font-bold">بطاقة سَنَد مُيسّر</h2>
-      <Link to="/maysar" className="surface flex items-center justify-between p-5">
-        <div className="flex items-center gap-3">
-          <Accessibility className="size-5 text-primary" />
-          <div>
-            <p className="font-semibold">تجربة مصرفية أسهل وأكثر وصولًا</p>
-            <p className="text-sm text-muted-foreground">سَنَد يتكيّف معك، مو العكس.</p>
-          </div>
-        </div>
-        <ChevronLeft className="size-5 text-muted-foreground" />
-      </Link>
     </AppShell>
   );
 }
