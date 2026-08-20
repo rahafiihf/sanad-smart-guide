@@ -13,14 +13,14 @@ export type Goal = {
 export type SanadState = {
   balance: number;
   monthlySaving: number;
-  streakWeeks: number;
+  streakMonths: number;
   goals: Goal[];
 };
 
 const initial: SanadState = {
   balance: 24850,
   monthlySaving: 600,
-  streakWeeks: 12,
+  streakMonths: 12,
   goals: [
     {
       id: "cyber",
